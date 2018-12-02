@@ -3,7 +3,7 @@
 Machine Learning algorithms were used to create a loan classification model for conservative investors using data from the Lending Club website. Prior to developing the model, the data obtained was cleaned and explored. The work was completed in three notebooks:
 * [Data Wrangling Notebook](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/Data_Wrangling%20.ipynb)
 * [Data Exploration Notebook](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/Data_Exploration.ipynb)
-* [Machine Learning Notebook](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/Data_Modeling.ipynb)
+* [Data Modeling Notebook](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/Data_Modeling.ipynb)
 
 **Key Skills:**
 * Data Wrangling using Pandas
@@ -51,17 +51,17 @@ Further investigation revealed that most borrowers who loan money for home impor
 ### Employment History, Annual Income and Loan Amount
 ![title](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/README_images%20/Inc_emp_loan.png)
 
-FICO score models do not make use of employment or annual income in computing a borrowers credit score as they have found it is not a good predictor of future credit performance. In line with the findings of FICO, Spearman's rank correlation test indicated that there's no association between the employment length and default rate of borrowers in the Lending Club marketplace (p = .81).  
+FICO score models do not make use of employment or annual income in computing a borrowers credit score as they have found it is not a good predictor of future credit performance. In line with the findings of FICO, Spearman's rank correlation test indicated that there's no association between the employment length and default rate of borrowers in the Lending Club marketplace (&rho; = -.08, p = .81).  
 
-However, with the exception of annual incomes in the $350,000 - $400,000, it was found that the percentage of borrowers that defaulted decreased as annual income increased. The unexpected deviation in default rate was potentially as a result of the small count of borrowers in the $350,000 - $400,000 income category. Further investigation using a t-test  revealed that the default rate in the $350,000 - $400,000 income category is not significantly different than its two neighbouring income categories, $300,000 - $350,000 and $400,000 - $450,000 (p = .16). 
+However, with the exception of annual incomes in the $350,000 - $400,000, it was found that the percentage of borrowers that defaulted decreased as annual income increased. This deviation in default rate was potentially as a result of the small count of borrowers in the $350,000 - $400,000 income category. Further investigation using a t-test  revealed that the default rate in the $350,000 - $400,000 income category is not significantly different than its two neighbouring income categories, $300,000 - $350,000 and $400,000 - $450,000 (p = .16). 
 
-Finally, it was found that as the loan amount requested increased, the default rate also increased. 
+Finally, it was found that as the loan amount requested increased, the default rate generally increased. 
 
 
 ### Usefulness of categorized employer data and subgrade data
 ![title](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/README_images%20/emp_grade.png)
 
-In the uncleaned Lending Club Dataset borrowers provided their employer title. The responses borrowers provided were not selected from a categorized list, and would therefore take a significant amount of time to clean. In order to  evaluate the usefulness of categorizing the employer titles without spending too much time, approximately 15% of the responses provided were categorized. For each category, a t-test was performed comparing the default rate of borrowers within the category to all borrowers outside the category. Using the Bonferroni correction to account for the multiple testing, it was found that 2 of the 8 employer categories have significantly different default rates relative to borrowers outside the category. These categories included borrowers that provided no responses and borrowers that work in educationalor research institutions. Given this result, it will likely be beneficial to fully categorize the employer data as it could provide useful insights to investors.
+In the uncleaned Lending Club Dataset borrowers provided their employer title. The responses borrowers provided were not selected from a categorized list, and would have taken a significant amount of time to clean. In order to  evaluate the usefulness of categorizing the employer titles without spending too much time, approximately 15% of the responses provided were categorized. For each category, a t-test was performed comparing the default rate of borrowers within the category to all borrowers outside the category. Applying the Bonferroni correction to account for the multiple tests, it was found that 2 of the 8 employer categories have significantly different default rates. These categories included borrowers that provided no responses and borrowers that work in educational or research institutions. Given this result, it will likely be beneficial to fully categorize the employer data as it could provide useful insights to investors.
 
 For grades A, B, C and D, the default risk generally increased as the sub-grades increased. For grades D, E and F there appeared to be some randomness in the variation of default risk with sub-grade. Spearman's rank correlation test suggests that there is a positive association between sub grades and default rate of borrowers (&rho; = .96, p <.0001). Accordingly, it was concluded that the sub-grade column offers useful insights to investors. 
 
@@ -71,7 +71,7 @@ In this notebook, a variety of machine learning algorithms were used to try and 
 ### Clustering 
 ![title](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/README_images%20/clustering.png)
 
-K-Means clustering was used to investigate whether customer segments existed. To determine the optimal number of clusters I attempted using the elbow method; however, no clear elbow was observed. Accordingly, the silhouette method was used and the optimal number of clusters was found to be 2. Further investigation into the features of both clusters revealed that there is no substantial difference worth investigating.
+K-Means clustering was used to investigate whether customer segments existed. To determine the optimal number of clusters I attempted using the elbow method; however, no clear elbow was observed. Accordingly, the silhouette method was used and the optimal number of clusters was found to be 2. Further investigation into the features of both clusters revealed that there was no substantial difference worth investigating.
 
 ### Parameter Tuning and Model Comparison
 ![title](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/README_images%20/model_tuning.png)
