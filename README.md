@@ -14,7 +14,7 @@ Machine Learning algorithms were used to create a loan classification model for 
     * Algorithms: Logistic Regression, Kernel SVM (SVC), Random Forest Classifier, XGBoost, Voting Classifier and K-means clustering
 
 ## [Data Wrangling Notebook](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/Data_Wrangling%20.ipynb)
-In this notebook raw Ledning Club data was cleaned to remove information an investor would not have at the time of making the investment. A brief summary of the steps taken is listed below:
+In this notebook raw Lending Club data was cleaned to remove information an investor would not have at the time of making the investment. A brief summary of the steps taken is listed below:
 
 **Removing Extraneous Data**
 1. Removing columns with 100% missing values.
@@ -76,9 +76,9 @@ K-Means clustering was used to investigate whether customer segments existed. To
 ### Parameter Tuning and Model Comparison
 ![title](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/README_images%20/model_tuning.png)
 
-The Lending Club data was divided into a training and a hold-out set that were 75% and 25% the size of the original data, respectively. The logistic regression, random forest and kernel SVM classifiers were tuned via grid and/or random searches with 10 fold cross validation. For each model the parameters tuned are listed below:
+The Lending Club data was divided into a training set (75% the size of the wrangled data) and a hold-out set (25% the size of the wrangled data). The logistic regression, random forest and kernel SVM classifiers were tuned via grid or random searches with 10 fold cross validation. For each model, the parameters that were tuned are listed below:
 
-* Logistic Regression: regularization parameter (C) and the penalty parameter (class_weight)
+* Logistic Regression: C and class_weight
 * Random Forest Classifier: class_weight, max_features, min_samples_split, min_samples_leaf, n_estimators, bootstrap and criterion
 * Kernel SVM (SVC): class_weight, gamma and C
 
@@ -87,14 +87,14 @@ Given the imbalanced nature of the loan data, area under the receiver operating 
 ### PCA on Logistic Regression Model
 ![title](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/README_images%20/PCA.png)
 
-In order to try and improve the AUROC of the hold-out set, the logistic regression model was implemented while varying the number of principal components used. The following was found during the investigation: 
+As an attempt to improve the AUROC of the hold-out set, the logistic regression model was implemented while varying the number of principal components used. The following was found during the investigation: 
 * 71 of the 78 components account for a 100% of the explained variance in the features
 * The AUROC of the hold-out set appears to increase as the number of principal components increases with the exception of a dip between 30 and 50 principal components. 
 
 ### Boosting and Blending Ensemble methods
 ![title](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/README_images%20/ensemble.png)
 
-To try and improve the AUROC on the hold-out set, XGBoost and a voting classifier were tested. The voting classifier was composed of an XGBoost classifier and the optimal logistic regression model. The XGBoost classifier had a hold-out set AUROC of 0.706, while the voting classifier had a hold-out set AUROC of 0.705. It was noted that the XGBoost classifier was better at identifying true postives (fully paid loans) while the voting classifier was better at identifying true negatives (charged off loans). 
+To try and improve the AUROC of the hold-out set, an XGBoost and a voting classifier were tested. The voting classifier was composed of an XGBoost classifier and the optimal logistic regression model. The XGBoost classifier had a hold-out set AUROC of 0.706, while the voting classifier had a hold-out set AUROC of 0.705. It was noted that the XGBoost classifier was better at identifying true postives (fully paid loans) while the voting classifier was better at identifying true negatives (charged off loans). 
 
 
 ### Conclusion
