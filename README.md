@@ -7,10 +7,10 @@ Machine Learning algorithms were used to create a loan classification model for 
 
 **Key Skills:**
 * Data Wrangling using Pandas
-* Data Visualization using seaborn and matplotlib
-* Inferential Statistics using scipy
+* Data Visualization using seaborn and Matplotlib
+* Inferential Statistics using SciPy
     * Hypothesis testing: t-test, Chi-square test and Spearman's rank correlation test
-* Machine Learning using sickit-learn
+* Machine Learning using scikit-learn
     * Algorithms: Logistic Regression, Kernel SVM (SVC), Random Forest Classifier, XGBoost, Voting Classifier and K-means clustering
 
 ## [Data Wrangling Notebook](https://github.com/paulb17/Machine-Powered-Investing-in-Lending-Club/blob/master/Data_Wrangling%20.ipynb)
